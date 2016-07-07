@@ -1,0 +1,77 @@
+<?php 
+	session_start();// Start the session before you write your HTML page
+?>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="deliverable1css.css">
+<title> Product Page </title></head>
+
+<header><h1>
+Product Page
+</h1>
+</header>
+
+<body>
+<?php
+ ini_set('display_errors','On');
+error_reporting(E_ALL);
+$con = mysqli_connect("dbserver.engr.scu.edu", "jmarcond", "00001025029", "sdb_jmarcond");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+  $sql="SELECT * FROM Products";
+  $result = $con->query($sql);
+  if (!$result)
+  {
+    die('Error: ' . mysqli_error($con));
+  }	
+
+echo "<table border='0'>
+<tr>
+<th>#</th>
+<th>Item</th>
+<th>Price</th>
+<th>Description</th>
+<th>In Stock</th>
+<th></th>
+</tr>";
+
+while($row = mysqli_fetch_assoc($result)) {
+echo "<tr>";
+$key = $row['code'];
+echo "<td>" . $row['code'] . "</td>";
+echo "<td>" . $row['title'] . "</td>";
+echo "<td>" . $row['price'] . "</td>";
+echo "<td>" . $row['description'] . "</td>";
+echo "<td>" . $row['instock'] . "</td>";
+echo "<td> <a href='viewCart.php?add=$key'>Add to cart</a> </td>";
+echo "</tr>";
+}
+echo "</table>";
+
+ 
+?>
+  <p> 
+    <a href="viewCart.php?show">View Shopping Cart</a> 
+    <br/> <br/>
+	<a href="viewCart.php?checkout">Checkout</a> 
+    <br/> <br/>
+    <a href="viewCart.php?clear">Clear Shopping Cart</a> 
+   </p> 
+<hr>
+
+<h2> Aleady a member? </h2>
+<form action="viewCart.php" method=POST>
+<p> Enter your member ID </p>
+<input type="text" name="memId"/>
+<a href="viewCart.php?verify">Verify</a>
+</form>
+  </body>
+</html>

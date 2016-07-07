@@ -1,0 +1,49 @@
+body {
+	margin: auto;
+	padding: 0px;
+	text-align: center;
+	padding-top: 100px;
+	background-color: beige;
+	font-family: Arial;
+
+
+}
+
+#startButton {
+	margin-top: 30px;
+}
+
+.ch{float: left;
+margin-left: 550px;}
+
+
+.choices{
+float: left;
+	
+}
+
+#correctOrNah{
+	margin-top: 200px;
+}
+
+h1 {
+	font-family: Arial;
+	font-weight: bold;
+	margin-top: -80px;
+	margin-bottom: -10px;
+}
+
+header {
+	background-color: darkgreen;
+	color: white;
+	padding-bottom: 20px;
+}
+
+table {
+  margin: auto;
+  margin-top: 100px;
+}
+
+th {
+  padding-right: 30px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="utf-8"/>
+<title>Assign 3</title>
+<script src="deliverable1js.js"></script>
+<link rel="stylesheet" type="text/css" href="deliverable1css.css">
+</head>
+
+<header>
+	<h1> Recycling Quiz </h1><br/>
+	<script> document.write(Date()); </script>
+</header>
+
+<body onload = "hideButtons()">
+	<button id="startButton" onclick="showAnswers()">Start Quiz</button>
+	<br/><br/>
+	
+	<div id="question"></div>
+	<div id="answers"></div>
+	<div id="correctOrNah"></div>
+	<div id="score"></div>
+	<button id="submitButton" onclick="checkAnswer()">Submit Answer</button>
+	<button id="exitButton" onclick="exitQuiz()">Stop Quiz</button>
+
+	<br/><br/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Using CSS -->
+<head> 
+<meta charset="utf-8" /> 
+<link rel="stylesheet" type="text/css" href="mystyles.css">
+
+<style>
+</style>
+
+<script>
+function allowDrop(ev) {
+    
+ 
+    	ev.preventDefault();
+  }
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    
+
+
+}
+</script>
+</head>
+
+<body>
+<div id="name">
+<h1>RecyclingBots Quiz</h1>
+<h2 >Connie Liou and Julia Marcondes</h2>
+</div>
+ 
+   <div id="nav">
+ 	
+  	<nav>
+		|<a href="deliverable1.html">Quiz</a>|
+</nav>
+</div>
+
+
+<div id="recycle"><img src="recycle.jpg" alt="Recycle"></div>
+
+<div id="dragcaption" style=font-size:18px;>Drag each item into the correct recycling category</div>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">Compost</div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">Plastic</div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">Glass</div>
+
+
+<img id="drag1" src="compost.jpg" draggable="true" ondragstart="drag(event)">
+<img id="drag2" src="plastic.jpg" draggable="true" ondragstart="drag(event)">
+<img id="drag3" src="glass.jpg" draggable="true" ondragstart="drag(event)">
+
+
+
+
+
+
+	
+
+</body>
+</html>
